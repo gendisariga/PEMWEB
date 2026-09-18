@@ -524,6 +524,20 @@ footer {
         display: none;
     }
 
+    .nav-toggle-btn {
+        display: block;
+
+        position: absolute;
+
+        right: 1.5rem;
+
+        top: 1rem;
+    }
+
+    header nav.nav-open {
+        display: block;
+    }
+
 
     .nav-toggle:checked ~ nav {
         display: block;
@@ -532,6 +546,19 @@ footer {
 
     header nav ul {
         flex-direction: column;
+    }
+
+    .table-responsive {
+        margin-right: -0.4rem;
+        margin-left: -0.4rem;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    .table-responsive .btn {
+        white-space: nowrap;
     }
 
 }

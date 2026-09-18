@@ -64,6 +64,53 @@ function initHapusConfirm() {
   });
 }
 
+function initReceiptButtons() {
+  document.addEventListener('click', function (event) {
+    const button = event.target.closest('.btn-cetak-struk');
+
+    if (!button) return;
+
+    const cells = button.closest('tr').querySelectorAll('td');
+    const receiptWindow = window.open('', '_blank', 'width=420,height=620');
+
+    if (!receiptWindow) return;
+
+    receiptWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="id">
+      <head>
+        <meta charset="UTF-8">
+        <title>Struk LaundryHub</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 24px; color: #172033; }
+          h1 { margin: 0 0 4px; color: #0f766e; font-size: 24px; }
+          p { margin: 4px 0 18px; color: #64748b; }
+          dl { border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; padding: 12px 0; }
+          dt { color: #64748b; font-size: 12px; margin-top: 10px; }
+          dd { margin: 2px 0 0; font-weight: 700; }
+          .thanks { margin-top: 22px; text-align: center; color: #0f766e; font-weight: 700; }
+        </style>
+      </head>
+      <body>
+        <h1>LaundryHub</h1>
+        <p>Struk transaksi laundry</p>
+        <dl>
+          <dt>Nama pelanggan</dt><dd>${cells[1].textContent}</dd>
+          <dt>Paket</dt><dd>${cells[2].textContent}</dd>
+          <dt>Berat / jumlah</dt><dd>${cells[3].textContent}</dd>
+          <dt>Total pembayaran</dt><dd>${cells[4].textContent}</dd>
+          <dt>Status</dt><dd>${cells[5].textContent}</dd>
+        </dl>
+        <div class="thanks">Terima kasih telah menggunakan LaundryHub.</div>
+      </body>
+      </html>
+    `);
+    receiptWindow.document.close();
+    receiptWindow.focus();
+    receiptWindow.print();
+  });
+}
+
 function initTableFilter() {
   const searchBoxes = document.querySelectorAll('.search-box');
 
@@ -149,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initNavIcons();
   initAuthLink();
   initHapusConfirm();
+  initReceiptButtons();
   initTableFilter();
   initValidasiForm();
 });
