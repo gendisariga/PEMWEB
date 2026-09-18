@@ -68,6 +68,8 @@ function initTableFilter() {
   const searchBoxes = document.querySelectorAll('.search-box');
 
   searchBoxes.forEach(function (searchBox) {
+    if (!searchBox.dataset.target) return;
+
     searchBox.addEventListener('keyup', function () {
       const keyword = searchBox.value.toLowerCase();
       const table = document.querySelector(searchBox.dataset.target);

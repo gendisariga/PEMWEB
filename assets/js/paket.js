@@ -34,7 +34,7 @@ function renderPaket(data) {
     tabelPaket.innerHTML = `
       <tr>
         <td colspan="6" style="text-align:center">
-          Data paket tidak tersedia
+          Tidak ada paket yang cocok dengan pencarian
         </td>
       </tr>
     `;
@@ -61,12 +61,12 @@ function renderPaket(data) {
 }
 
 inputCari?.addEventListener('input', function () {
-  const keyword = this.value.toLowerCase();
+  const keyword = this.value.trim().toLowerCase();
 
   const hasil = dataPaket.filter(
-    (paket) =>
-      paket.nama_paket.toLowerCase().includes(keyword) ||
-      paket.jenis.toLowerCase().includes(keyword)
+    (paket) => Object.values(paket).some((nilai) =>
+      String(nilai).toLowerCase().includes(keyword)
+    )
   );
 
   renderPaket(hasil);
