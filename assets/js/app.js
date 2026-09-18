@@ -9,6 +9,28 @@ function initNavToggle() {
   });
 }
 
+function initNavIcons() {
+  const icons = {
+    '🏠': 'bi-house-door-fill',
+    '🧺': 'bi-basket2-fill',
+    '👥': 'bi-people-fill',
+    '🧾': 'bi-receipt-cutoff',
+    '🔐': 'bi-shield-lock-fill',
+    '➕': 'bi-plus-circle-fill',
+    '↪': 'bi-box-arrow-right'
+  };
+
+  document.querySelectorAll('.nav-icon').forEach(function (icon) {
+    const iconClass = icons[icon.textContent.trim()];
+
+    if (!iconClass) return;
+
+    icon.className = `bi ${iconClass} nav-icon`;
+    icon.textContent = '';
+    icon.setAttribute('aria-hidden', 'true');
+  });
+}
+
 function initAuthLink() {
   const authLink = document.querySelector('.login-nav-link');
   const isLoggedIn = localStorage.getItem('laundryLoggedIn') === 'true';
@@ -16,7 +38,7 @@ function initAuthLink() {
   if (!authLink || !isLoggedIn) return;
 
   const username = localStorage.getItem('laundryUsername') || 'Pengguna';
-  authLink.innerHTML = '<span class="nav-icon">↪</span>Logout';
+  authLink.innerHTML = '<i class="bi bi-box-arrow-right nav-icon" aria-hidden="true"></i>Logout';
   authLink.setAttribute('aria-label', `Logout dari akun ${username}`);
 
   authLink.addEventListener('click', function (event) {
@@ -122,6 +144,7 @@ function initValidasiForm() {
 
 document.addEventListener('DOMContentLoaded', function () {
   initNavToggle();
+  initNavIcons();
   initAuthLink();
   initHapusConfirm();
   initTableFilter();
