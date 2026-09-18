@@ -9,6 +9,24 @@ function initNavToggle() {
   });
 }
 
+function initAuthLink() {
+  const authLink = document.querySelector('.login-nav-link');
+  const isLoggedIn = localStorage.getItem('laundryLoggedIn') === 'true';
+
+  if (!authLink || !isLoggedIn) return;
+
+  const username = localStorage.getItem('laundryUsername') || 'Pengguna';
+  authLink.innerHTML = '<span class="nav-icon">↪</span>Logout';
+  authLink.setAttribute('aria-label', `Logout dari akun ${username}`);
+
+  authLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    localStorage.removeItem('laundryLoggedIn');
+    localStorage.removeItem('laundryUsername');
+    window.location.href = authLink.href;
+  });
+}
+
 function initHapusConfirm() {
   document.addEventListener('click', function (event) {
     const button = event.target.closest('.btn-hapus');
@@ -104,6 +122,7 @@ function initValidasiForm() {
 
 document.addEventListener('DOMContentLoaded', function () {
   initNavToggle();
+  initAuthLink();
   initHapusConfirm();
   initTableFilter();
   initValidasiForm();
