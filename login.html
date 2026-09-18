@@ -36,8 +36,8 @@
             event.preventDefault();
             const username = document.getElementById('username').value.trim();
 
-            localStorage.setItem('laundryLoggedIn', 'true');
-            localStorage.setItem('laundryUsername', username);
+            sessionStorage.setItem('laundryLoggedIn', 'true');
+            sessionStorage.setItem('laundryUsername', username);
             window.location.href = 'index.html';
         });
     </script>

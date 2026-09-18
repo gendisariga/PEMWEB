@@ -33,18 +33,18 @@ function initNavIcons() {
 
 function initAuthLink() {
   const authLink = document.querySelector('.login-nav-link');
-  const isLoggedIn = localStorage.getItem('laundryLoggedIn') === 'true';
+  const isLoggedIn = sessionStorage.getItem('laundryLoggedIn') === 'true';
 
   if (!authLink || !isLoggedIn) return;
 
-  const username = localStorage.getItem('laundryUsername') || 'Pengguna';
+  const username = sessionStorage.getItem('laundryUsername') || 'Pengguna';
   authLink.innerHTML = '<i class="bi bi-box-arrow-right nav-icon" aria-hidden="true"></i>Logout';
   authLink.setAttribute('aria-label', `Logout dari akun ${username}`);
 
   authLink.addEventListener('click', function (event) {
     event.preventDefault();
-    localStorage.removeItem('laundryLoggedIn');
-    localStorage.removeItem('laundryUsername');
+    sessionStorage.removeItem('laundryLoggedIn');
+    sessionStorage.removeItem('laundryUsername');
     window.location.href = authLink.href;
   });
 }
