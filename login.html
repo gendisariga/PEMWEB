@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | LaundryHub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="login-page">
+    <main class="login-shell">
+        <section class="login-card">
+            <a class="login-brand" href="index.html">LaundryHub</a>
+            <span class="login-icon" aria-hidden="true">🔐</span>
+            <h1>Masuk ke LaundryHub</h1>
+            <p class="login-intro">Kelola layanan laundry Anda dengan lebih mudah.</p>
+
+            <form class="login-form" id="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autocomplete="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+                <button type="submit" class="login-submit">Masuk</button>
+                <p class="login-message" id="login-message" role="status"></p>
+            </form>
+
+            <a class="login-back" href="index.html">Kembali ke beranda</a>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('login-message').textContent = 'Login siap dihubungkan ke sistem autentikasi.';
+        });
+    </script>
+</body>
+
+</html>
