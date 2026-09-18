@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nama_paket": "Cuci Kering",
+    "jenis": "Pakaian",
+    "harga": 5000,
+    "estimasi": "2 hari"
+  },
+  {
+    "id": 2,
+    "nama_paket": "Cuci Setrika",
+    "jenis": "Pakaian",
+    "harga": 8000,
+    "estimasi": "2 hari"
+  },
+  {
+    "id": 3,
+    "nama_paket": "Cuci Sepatu",
+    "jenis": "Sepatu",
+    "harga": 25000,
+    "estimasi": "3 hari"
+  },
+  {
+    "id": 4,
+    "nama_paket": "Cuci Selimut",
+    "jenis": "Bedding",
+    "harga": 18000,
+    "estimasi": "4 hari"
+  },
+  {
+    "id": 5,
+    "nama_paket": "Dry Clean",
+    "jenis": "Jas",
+    "harga": 30000,
+    "estimasi": "3 hari"
+  }
+]

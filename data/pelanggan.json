@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "no_pelanggan": "L001",
+    "nama": "Siti Aminah",
+    "alamat": "Malang",
+    "no_hp": "0812xxxx"
+  },
+  {
+    "id": 2,
+    "no_pelanggan": "L002",
+    "nama": "Budi Santoso",
+    "alamat": "Batu",
+    "no_hp": "0813xxxx"
+  },
+  {
+    "id": 3,
+    "no_pelanggan": "L003",
+    "nama": "Andi Saputra",
+    "alamat": "Kepanjen",
+    "no_hp": "0814xxxx"
+  },
+  {
+    "id": 4,
+    "no_pelanggan": "L004",
+    "nama": "Rina Putri",
+    "alamat": "Malang",
+    "no_hp": "0815xxxx"
+  }
+]

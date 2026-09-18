@@ -1,0 +1,75 @@
+const tabelPaket = document.querySelector('#tabel-paket');
+const inputCari = document.querySelector('#cari-paket');
+
+let dataPaket = [];
+
+async function tampilkanPaket() {
+  try {
+    const response = await fetch('../data/paket.json');
+
+    if (!response.ok) {
+      throw new Error('Data paket tidak ditemukan');
+    }
+
+    dataPaket = await response.json();
+    renderPaket(dataPaket);
+  } catch (error) {
+    if (tabelPaket) {
+      tabelPaket.innerHTML = `
+        <tr>
+          <td colspan="6" style="text-align:center;color:red">
+            Gagal memuat data paket
+          </td>
+        </tr>
+      `;
+    }
+    console.error(error);
+  }
+}
+
+function renderPaket(data) {
+  if (!tabelPaket) return;
+
+  if (data.length === 0) {
+    tabelPaket.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center">
+          Data paket tidak tersedia
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tabelPaket.innerHTML = data
+    .map(
+      (paket, index) => `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${paket.nama_paket}</td>
+        <td>${paket.jenis}</td>
+        <td>Rp ${Number(paket.harga).toLocaleString('id-ID')}</td>
+        <td>${paket.estimasi}</td>
+        <td>
+          <button class="btn btn-warning btn-sm">Edit</button>
+          <button class="btn btn-danger btn-sm btn-hapus">Hapus</button>
+        </td>
+      </tr>
+    `
+    )
+    .join('');
+}
+
+inputCari?.addEventListener('input', function () {
+  const keyword = this.value.toLowerCase();
+
+  const hasil = dataPaket.filter(
+    (paket) =>
+      paket.nama_paket.toLowerCase().includes(keyword) ||
+      paket.jenis.toLowerCase().includes(keyword)
+  );
+
+  renderPaket(hasil);
+});
+
+tampilkanPaket();

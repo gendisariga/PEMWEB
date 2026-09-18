@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tambah Pelanggan | Laundry App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>LaundryHub</h1>
+        <button type="button" id="nav-toggle-btn" class="nav-toggle-btn">☰</button>
+        <nav>
+            <ul>
+                <li><a href="../index.html"><span class="nav-icon">🏠</span>Beranda</a></li>
+                <li><a href="../paket/list.html"><span class="nav-icon">🧺</span>Daftar Paket</a></li>
+                <li><a href="list.html"><span class="nav-icon">👥</span>Daftar Pelanggan</a></li>
+                <li><a href="tambah.html"><span class="nav-icon">➕</span>Tambah Pelanggan</a></li>
+                <li><a href="../transaksi/list.html"><span class="nav-icon">🧾</span>Transaksi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tambah Pelanggan</h2>
+
+            <form id="form-tambah">
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama pelanggan">
+                </div>
+
+                <div class="mb-3">
+                    <label for="no_pelanggan" class="form-label">No. Pelanggan</label>
+                    <input type="text" id="no_pelanggan" name="no_pelanggan" class="form-control" placeholder="Contoh: L003">
+                </div>
+
+                <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukkan alamat">
+                </div>
+
+                <div class="mb-3">
+                    <label for="no_hp" class="form-label">No. HP</label>
+                    <input type="text" id="no_hp" name="no_hp" class="form-control" placeholder="Masukkan nomor HP">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="list.html" class="btn btn-secondary">Kembali</a>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 LaundryHub &mdash; Sistem Laundry</p>
+    </footer>
+
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
